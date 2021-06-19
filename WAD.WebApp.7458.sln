@@ -1,0 +1,31 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.31129.286
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WAD.WebApp.7458", "WAD.WebApp.7458\WAD.WebApp.7458.csproj", "{E4C5FC88-C83B-4253-978F-3E202DF72759}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WAD.WebApp.7458.DAL", "WAD.WebApp.7458.DAL\WAD.WebApp.7458.DAL.csproj", "{1EDA11E4-F7EA-4B2A-B944-650D46EE7DFA}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{E4C5FC88-C83B-4253-978F-3E202DF72759}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{E4C5FC88-C83B-4253-978F-3E202DF72759}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{E4C5FC88-C83B-4253-978F-3E202DF72759}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{E4C5FC88-C83B-4253-978F-3E202DF72759}.Release|Any CPU.Build.0 = Release|Any CPU
+		{1EDA11E4-F7EA-4B2A-B944-650D46EE7DFA}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{1EDA11E4-F7EA-4B2A-B944-650D46EE7DFA}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{1EDA11E4-F7EA-4B2A-B944-650D46EE7DFA}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{1EDA11E4-F7EA-4B2A-B944-650D46EE7DFA}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {8DEDC520-0724-47F9-A983-09431AF9C936}
+	EndGlobalSection
+EndGlobal
