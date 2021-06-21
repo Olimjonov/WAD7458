@@ -1,10 +1,10 @@
 {
   "version": 2,
-  "dgSpecHash": "eO1WxoBWtiQM1GuCT0v92aMvmZKkIFeJL+7nuSaDPRxD0gT8x/yerQ8MummDDgFSWCYDaAIIYDJvMAY4HvycVA==",
+  "dgSpecHash": "9l5/uZiH7EW5AovbHa/2bO2wd++cMNwdpOjSC1sgrYwhIxUO79/uSwflD/10i2hhoJ0HQ+6p2nfg+sUdKhPYhw==",
   "success": true,
   "projectFilePath": "d:\\9sem\\wad\\WAD7458\\WAD.WebApp.7458.DAL\\WAD.WebApp.7458.DAL.csproj",
   "expectedPackageFiles": [
-    "C:\\Users\\ASUS\\.nuget\\packages\\microsoft.aspnetcore.http.features\\5.0.7\\microsoft.aspnetcore.http.features.5.0.7.nupkg.sha512",
+    "C:\\Users\\ASUS\\.nuget\\packages\\microsoft.aspnetcore.http.features\\5.0.5\\microsoft.aspnetcore.http.features.5.0.5.nupkg.sha512",
     "C:\\Users\\ASUS\\.nuget\\packages\\microsoft.bcl.asyncinterfaces\\1.1.1\\microsoft.bcl.asyncinterfaces.1.1.1.nupkg.sha512",
     "C:\\Users\\ASUS\\.nuget\\packages\\microsoft.bcl.hashcode\\1.1.1\\microsoft.bcl.hashcode.1.1.1.nupkg.sha512",
     "C:\\Users\\ASUS\\.nuget\\packages\\microsoft.csharp\\4.7.0\\microsoft.csharp.4.7.0.nupkg.sha512",

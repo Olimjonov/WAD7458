@@ -8,6 +8,8 @@
   <ItemGroup>
     <Compile Remove="Migrations\20210621074304_InitialMigration.cs" />
     <Compile Remove="Migrations\20210621074304_InitialMigration.Designer.cs" />
+    <Compile Remove="Migrations\20210621075517_InitialMigration.cs" />
+    <Compile Remove="Migrations\20210621075517_InitialMigration.Designer.cs" />
   </ItemGroup>
 
   <ItemGroup>
@@ -15,7 +17,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <PackageReference Include="Microsoft.AspNetCore.Http.Features" Version="5.0.7" />
+    <PackageReference Include="Microsoft.AspNetCore.Http.Features" Version="5.0.5" />
     <PackageReference Include="Microsoft.EntityFrameworkCore" Version="3.1.13" />
     <PackageReference Include="Microsoft.EntityFrameworkCore.Design" Version="3.1.13">
       <PrivateAssets>all</PrivateAssets>
