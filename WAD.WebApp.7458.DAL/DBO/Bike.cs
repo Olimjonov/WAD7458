@@ -32,7 +32,7 @@ namespace WAD.WebApp._7458.DAL.DBO
         public int ModelYear { get; set; }
         
         [Required]
-        public decimal Price { get; set; }
+        public int Price { get; set; }
 
         [Display(Name = "Photo Byte")]
         public byte[] BinaryPhoto { get; set; }

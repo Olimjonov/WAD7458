@@ -6,14 +6,14 @@ using WAD.WebApp._7458.DAL.DBO;
 
 namespace WAD.WebApp._7458.DAL.Repository
 {
-    public class CategoryRepository : BaseRepository, IRepository<CategoryRepository>
+    public class CategoryRepository : BaseRepository, IRepository<Category>
     {
         public CategoryRepository(BikeDbContext context)
             : base(context)
         {
         }
 
-        public Task CreateAsync(CategoryRepository steak)
+        public Task CreateAsync(Category steak)
         {
             throw new NotImplementedException();
         }
@@ -28,17 +28,17 @@ namespace WAD.WebApp._7458.DAL.Repository
             throw new NotImplementedException();
         }
 
-        public Task<List<CategoryRepository>> GetAllAsync()
+        public Task<List<Category>> GetAllAsync()
         {
             throw new NotImplementedException();
         }
 
-        public Task<CategoryRepository> GetByIdAsync(int id)
+        public Task<Category> GetByIdAsync(int id)
         {
             throw new NotImplementedException();
         }
 
-        public Task UpdateAsync(CategoryRepository steak)
+        public Task UpdateAsync(Category steak)
         {
             throw new NotImplementedException();
         }
