@@ -33,7 +33,6 @@ namespace WAD.WebApp._7458.DAL.DBO
         public Brand Brand { get; set; }
 
         [Display(Name = "Model Year")]
-        [MaxLength(4)]
         public int ModelYear { get; set; }
         
         [Required]

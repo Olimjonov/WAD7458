@@ -8,16 +8,23 @@ using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
 using WAD.WebApp._7458.DAL;
 using WAD.WebApp._7458.DAL.DBO;
+using WAD.WebApp._7458.DAL.Repository;
 
 namespace WAD.WebApp._7458.Controllers
 {
     public class BikesController : Controller
     {
         private readonly BikeDbContext _context;
+        private readonly IRepository<Bike> _bikeRepo;
+        private readonly IRepository<Brand> _BrandRepo;
+        private readonly IRepository<Category> _CategoryRepo;
 
-        public BikesController(BikeDbContext context)
+        public BikesController(BikeDbContext context, IRepository<Bike> bikeRepo, IRepository<Brand> BrandRepo, IRepository<Category> CategoryRepo)
         {
             _context = context;
+            _bikeRepo = bikeRepo;
+            _BrandRepo = BrandRepo;
+            _CategoryRepo = CategoryRepo;
         }
 
         // GET: Bikes
@@ -48,10 +55,10 @@ namespace WAD.WebApp._7458.Controllers
         }
 
         // GET: Bikes/Create
-        public IActionResult Create()
+        public async Task<IActionResult> Create()
         {
-            ViewData["BrandId"] = new SelectList(_context.Brand, "BrandId", "BrandId");
-            ViewData["CategoryId"] = new SelectList(_context.Category, "CategoryId", "CategoryId");
+            ViewData["BrandId"] = new SelectList( await _BrandRepo.GetAllAsync(), "BrandId", "BrandName");
+            ViewData["CategoryId"] = new SelectList( await _CategoryRepo.GetAllAsync(), "CategoryId", "CategoryName"); ;
             return View();
         }
 
@@ -64,22 +71,28 @@ namespace WAD.WebApp._7458.Controllers
         {
             if (ModelState.IsValid)
             {
-                byte[] photoBytes = null;
-                if (bike.BikePhoto != null)
+                try
                 {
-                    using (var memory = new MemoryStream())
+                    byte[] photoBytes = null;
+                    if (bike.BikePhoto != null)
                     {
-                        bike.BikePhoto.CopyTo(memory);
-                        photoBytes = memory.ToArray();
+                        using (var memory = new MemoryStream())
+                        {
+                            bike.BikePhoto.CopyTo(memory);
+                            photoBytes = memory.ToArray();
+                        }
                     }
+                    bike.BinaryPhoto = photoBytes;
+                    await _bikeRepo.CreateAsync(bike);
+                    return RedirectToAction(nameof(Index));
+                } catch (Exception ex)
+                {
+                    ModelState.AddModelError("", ex.Message);
+                    Console.WriteLine(ex);
                 }
-                bike.BinaryPhoto = photoBytes;
-                _context.Add(bike);
-                await _context.SaveChangesAsync();
-                return RedirectToAction(nameof(Index));
             }
-            ViewData["BrandId"] = new SelectList(_context.Brand, "BrandId", "BrandId", bike.BrandId);
-            ViewData["CategoryId"] = new SelectList(_context.Category, "CategoryId", "CategoryId", bike.CategoryId);
+            ViewData["BrandId"] = new SelectList(await _BrandRepo.GetAllAsync(), "BrandId", "BrandName");
+            ViewData["CategoryId"] = new SelectList(await _CategoryRepo.GetAllAsync(), "CategoryId", "CategoryName");
             return View(bike);
         }
 
@@ -96,8 +109,8 @@ namespace WAD.WebApp._7458.Controllers
             {
                 return NotFound();
             }
-            ViewData["BrandId"] = new SelectList(_context.Brand, "BrandId", "BrandId", bike.BrandId);
-            ViewData["CategoryId"] = new SelectList(_context.Category, "CategoryId", "CategoryId", bike.CategoryId);
+            ViewData["BrandId"] = new SelectList(_context.Brand, "BrandId", "BrandName", bike.BrandId);
+            ViewData["CategoryId"] = new SelectList(_context.Category, "CategoryId", "CategoryName", bike.CategoryId);
             return View(bike);
         }
 
@@ -133,8 +146,8 @@ namespace WAD.WebApp._7458.Controllers
                 }
                 return RedirectToAction(nameof(Index));
             }
-            ViewData["BrandId"] = new SelectList(_context.Brand, "BrandId", "BrandId", bike.BrandId);
-            ViewData["CategoryId"] = new SelectList(_context.Category, "CategoryId", "CategoryId", bike.CategoryId);
+            ViewData["BrandId"] = new SelectList(_context.Brand, "BrandId", "BrandName", bike.BrandId);
+            ViewData["CategoryId"] = new SelectList(_context.Category, "CategoryId", "CategoryName", bike.CategoryId);
             return View(bike);
         }
 

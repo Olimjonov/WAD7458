@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Microsoft.EntityFrameworkCore;
+using System;
 using System.Collections.Generic;
 using System.Text;
 using System.Threading.Tasks;
@@ -28,9 +29,9 @@ namespace WAD.WebApp._7458.DAL.Repository
             throw new NotImplementedException();
         }
 
-        public Task<List<Category>> GetAllAsync()
+        public async Task<List<Category>> GetAllAsync()
         {
-            throw new NotImplementedException();
+            return await _dbContext.Category.ToListAsync();
         }
 
         public Task<Category> GetByIdAsync(int id)

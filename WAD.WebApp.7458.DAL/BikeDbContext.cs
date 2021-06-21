@@ -14,8 +14,8 @@ namespace WAD.WebApp._7458.DAL
         {
  
         }
-        protected override void OnConfiguring(DbContextOptionsBuilder options)
-         => options.UseSqlServer("DataSource=BikeStore.db");
+        //protected override void OnConfiguring(DbContextOptionsBuilder options)
+         //=> options.UseSqlServer("DataSource=BikeStore.db");
 
         public virtual DbSet<Bike> Bike { get; set; }
 

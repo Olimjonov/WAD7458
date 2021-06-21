@@ -14,9 +14,10 @@ namespace WAD.WebApp._7458.DAL.Repository
         {
         }
 
-        public Task CreateAsync(Bike steak)
+        public async Task CreateAsync(Bike bike)
         {
-            throw new NotImplementedException();
+            _dbContext.Add(bike);
+            await _dbContext.SaveChangesAsync();
         }
 
         public Task DeleteAsync(int id)
@@ -31,7 +32,7 @@ namespace WAD.WebApp._7458.DAL.Repository
 
         public async Task<List<Bike>> GetAllAsync()
         {
-            return await _dbContext.Bike.Include(a => a.Category).ToListAsync();
+            return await _dbContext.Bike.ToListAsync();
         }
 
         public Task<Bike> GetByIdAsync(int id)

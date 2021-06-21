@@ -9,7 +9,7 @@ namespace WAD.WebApp._7458.DAL.DBO
     {
         public int BrandId { get; set; }
 
-        [DisplayName("Category Name")]
+        [DisplayName("Brand Name")]
         public string BrandName { get; set; }
     }
 }

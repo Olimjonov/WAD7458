@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Microsoft.EntityFrameworkCore;
+using System;
 using System.Collections.Generic;
 using System.Text;
 using System.Threading.Tasks;
@@ -13,9 +14,10 @@ namespace WAD.WebApp._7458.DAL.Repository
         {
         }
 
-        public Task CreateAsync(Brand steak)
+        public async Task CreateAsync(Brand brand)
         {
-            throw new NotImplementedException();
+            _dbContext.Add(brand);
+            await _dbContext.SaveChangesAsync();
         }
 
         public Task DeleteAsync(int id)
@@ -28,9 +30,9 @@ namespace WAD.WebApp._7458.DAL.Repository
             throw new NotImplementedException();
         }
 
-        public Task<List<Brand>> GetAllAsync()
+        public async Task<List<Brand>> GetAllAsync()
         {
-            throw new NotImplementedException();
+            return await _dbContext.Brand.ToListAsync();
         }
 
         public Task<Brand> GetByIdAsync(int id)
