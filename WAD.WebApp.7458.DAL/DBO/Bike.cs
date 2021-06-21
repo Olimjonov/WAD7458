@@ -9,6 +9,11 @@ namespace WAD.WebApp._7458.DAL.DBO
 {
     public class Bike
     {
+        public Bike()
+        {
+
+        }
+
         [Display(Name = "Id")]
         public int BikeId { get; set; }
 

@@ -26,21 +26,26 @@ namespace WAD.WebApp._7458
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
+
+            services.AddMvc();
+            services.AddSingleton(Configuration);
             services.AddScoped<IRepository<Bike>, BikeRepository>();
             services.AddScoped<IRepository<Category>, CategoryRepository>();
             services.AddScoped<IRepository<Brand>, BrandRepository>();
 
-            services.AddControllersWithViews();
+
+            //services.AddControllersWithViews();
 
             services.AddDbContext<BikeDbContext>(
                 options => options.UseSqlServer(
                     Configuration.GetConnectionString("BikeStore")
                     )
                 );
+
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
-        public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
+        public void Configure(IApplicationBuilder app, IHostingEnvironment env)
         {
             if (env.IsDevelopment())
             {
@@ -52,15 +57,11 @@ namespace WAD.WebApp._7458
             }
             app.UseStaticFiles();
 
-            app.UseRouting();
-
-            app.UseAuthorization();
-
-            app.UseEndpoints(endpoints =>
+            app.UseMvc(routes =>
             {
-                endpoints.MapControllerRoute(
+                routes.MapRoute(
                     name: "default",
-                    pattern: "{controller=Home}/{action=Index}/{id?}");
+                    template: "{controller=Home}/{action=Index}/{id?}");
             });
         }
     }
