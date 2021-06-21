@@ -1,4 +1,6 @@
 d:\9sem\wad\WAD7458\WAD.WebApp.7458.DAL\bin\Debug\netcoreapp3.1\WAD.WebApp.7458.DAL.deps.json
+d:\9sem\wad\WAD7458\WAD.WebApp.7458.DAL\bin\Debug\netcoreapp3.1\WAD.WebApp.7458.DAL.runtimeconfig.json
+d:\9sem\wad\WAD7458\WAD.WebApp.7458.DAL\bin\Debug\netcoreapp3.1\WAD.WebApp.7458.DAL.runtimeconfig.dev.json
 d:\9sem\wad\WAD7458\WAD.WebApp.7458.DAL\bin\Debug\netcoreapp3.1\WAD.WebApp.7458.DAL.dll
 d:\9sem\wad\WAD7458\WAD.WebApp.7458.DAL\bin\Debug\netcoreapp3.1\WAD.WebApp.7458.DAL.pdb
 d:\9sem\wad\WAD7458\WAD.WebApp.7458.DAL\obj\Debug\netcoreapp3.1\WAD.WebApp.7458.DAL.csprojAssemblyReference.cache
@@ -7,6 +9,4 @@ d:\9sem\wad\WAD7458\WAD.WebApp.7458.DAL\obj\Debug\netcoreapp3.1\WAD.WebApp.7458.
 d:\9sem\wad\WAD7458\WAD.WebApp.7458.DAL\obj\Debug\netcoreapp3.1\WAD.WebApp.7458.DAL.csproj.CoreCompileInputs.cache
 d:\9sem\wad\WAD7458\WAD.WebApp.7458.DAL\obj\Debug\netcoreapp3.1\WAD.WebApp.7458.DAL.dll
 d:\9sem\wad\WAD7458\WAD.WebApp.7458.DAL\obj\Debug\netcoreapp3.1\WAD.WebApp.7458.DAL.pdb
-d:\9sem\wad\WAD7458\WAD.WebApp.7458.DAL\bin\Debug\netcoreapp3.1\WAD.WebApp.7458.DAL.runtimeconfig.json
-d:\9sem\wad\WAD7458\WAD.WebApp.7458.DAL\bin\Debug\netcoreapp3.1\WAD.WebApp.7458.DAL.runtimeconfig.dev.json
 d:\9sem\wad\WAD7458\WAD.WebApp.7458.DAL\obj\Debug\netcoreapp3.1\WAD.WebApp.7458.DAL.genruntimeconfig.cache
