@@ -32,7 +32,7 @@
             @Html.DisplayNameFor(model => model.BinaryPhoto)
         </dt>
         <dd>
-            @Html.DisplayFor(model => model.BinaryPhoto)
+            <img src="@Url.Action("ShowImage", new {id= Model.BikeId})" width="200" />
         </dd>
         <dt>
             @Html.DisplayNameFor(model => model.ArrivedDate)
@@ -50,13 +50,13 @@
             @Html.DisplayNameFor(model => model.Brand)
         </dt>
         <dd>
-            @Html.DisplayFor(model => model.Brand.BrandId)
+            @Html.DisplayFor(model => model.Brand.BrandName)
         </dd>
         <dt>
             @Html.DisplayNameFor(model => model.Category)
         </dt>
         <dd>
-            @Html.DisplayFor(model => model.Category.CategoryId)
+            @Html.DisplayFor(model => model.Category.CategoryName)
         </dd>
     </dl>
 </div>

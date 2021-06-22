@@ -35,9 +35,11 @@ namespace WAD.WebApp._7458.DAL.Repository
             return await _dbContext.Bike.ToListAsync();
         }
 
-        public Task<Bike> GetByIdAsync(int id)
+        public async Task<Bike> GetByIdAsync(int id)
         {
-            throw new NotImplementedException();
+            return await _dbContext.Bike
+               .Include(a => a.Category)
+               .FirstOrDefaultAsync(m => m.BikeId == id);
         }
 
         public Task UpdateAsync(Bike steak)

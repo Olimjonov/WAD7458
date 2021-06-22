@@ -67,7 +67,7 @@ namespace WAD.WebApp._7458.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("BikeId,BikeName,CategoryId,BrandId,ModelYear,Price,BinaryPhoto,ArrivedDate,IsReturnable")] Bike bike)
+        public async Task<IActionResult> Create([Bind("BikeId,BikeName,CategoryId,BrandId,ModelYear,Price,BikePhoto,ArrivedDate,IsReturnable")] Bike bike)
         {
             if (ModelState.IsValid)
             {
@@ -119,7 +119,7 @@ namespace WAD.WebApp._7458.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(int id, [Bind("BikeId,BikeName,CategoryId,BrandId,ModelYear,Price,BinaryPhoto,ArrivedDate,IsReturnable")] Bike bike)
+        public async Task<IActionResult> Edit(int id, [Bind("BikeId,BikeName,CategoryId,BrandId,ModelYear,Price,BinaryPhoto,BikePhoto,ArrivedDate,IsReturnable")] Bike bike)
         {
             if (id != bike.BikeId)
             {
@@ -130,6 +130,20 @@ namespace WAD.WebApp._7458.Controllers
             {
                 try
                 {
+                    byte[] photoBytes = null;
+                    if (bike.BikePhoto != null)
+                    {
+                        using (var memory = new MemoryStream())
+                        {
+                            bike.BikePhoto.CopyTo(memory);
+                            photoBytes = memory.ToArray();
+                        }
+                    }
+                    else
+                    {
+                        photoBytes = bike.BinaryPhoto;
+                    }
+                    bike.BinaryPhoto = photoBytes;
                     _context.Update(bike);
                     await _context.SaveChangesAsync();
                 }
@@ -185,6 +199,23 @@ namespace WAD.WebApp._7458.Controllers
         private bool BikeExists(int id)
         {
             return _context.Bike.Any(e => e.BikeId == id);
+        }
+
+        public async Task<IActionResult> ShowImage(int? id)
+        {
+            if (id.HasValue)
+            {
+                var bike = await _bikeRepo.GetByIdAsync(id.Value);
+                if (bike?.BinaryPhoto != null)
+                {
+                    return File(
+                        bike.BinaryPhoto,
+                        "image/jpeg",
+                        $"bike_{id}.jpg");
+                }
+            }
+
+            return NotFound();
         }
     }
 }

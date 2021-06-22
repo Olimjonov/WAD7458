@@ -52,7 +52,7 @@
                 @Html.DisplayFor(modelItem => item.Price)
             </td>
             <td>
-                @Html.DisplayFor(modelItem => item.BinaryPhoto)
+                <img src="@Url.Action("ShowImage", new {id= item.BikeId})" width="60" />
             </td>
             <td>
                 @Html.DisplayFor(modelItem => item.ArrivedDate)
@@ -61,10 +61,10 @@
                 @Html.DisplayFor(modelItem => item.IsReturnable)
             </td>
             <td>
-                @Html.DisplayFor(modelItem => item.Brand.BrandId)
+                @Html.DisplayFor(modelItem => item.Brand.BrandName)
             </td>
             <td>
-                @Html.DisplayFor(modelItem => item.Category.CategoryId)
+                @Html.DisplayFor(modelItem => item.Category.CategoryName)
             </td>
             <td>
                 <a asp-action="Edit" asp-route-id="@item.BikeId">Edit</a> |
